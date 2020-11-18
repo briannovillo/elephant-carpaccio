@@ -41,6 +41,10 @@ def renderRow3(discount, discountAmount)
     return "DTO % #{discount} #{discountAmount}"
 end
 
+def renderRow4()
+    return "Total"
+end
+
 def main(quantity, unitPrice, state)
     @baseAmount = multiply(quantity, unitPrice)
 
@@ -50,7 +54,7 @@ def main(quantity, unitPrice, state)
     @discount = getDiscountForAmountGreaterThan(@baseAmount)
     @discountAmount = percentage(@baseAmount, @discount)
 
-    "#{renderRow1(quantity, unitPrice, @baseAmount)}\n#{renderRow2(state, @tax, @taxAmount)}\n#{renderRow3(@discount, @discountAmount)}"
+    "#{renderRow1(quantity, unitPrice, @baseAmount)}\n#{renderRow2(state, @tax, @taxAmount)}\n#{renderRow3(@discount, @discountAmount)}\n#{renderRow4()}"
 end
 
 puts main(ARGV[0], ARGV[1], ARGV[2])
