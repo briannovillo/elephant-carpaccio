@@ -25,12 +25,16 @@ def renderRow2(state, tax, percentage)
     return "#{state} #{tax} = #{percentage}"
 end
 
+def renderRow3()
+    return "DTO"
+end
+
 def main(quantity, unitPrice, state)
     @baseAmount = multiply(quantity, unitPrice)
     @tax = getTaxForState(state)
     @percentage = percentage(@baseAmount, @tax)
 
-    "#{renderRow1(quantity, unitPrice, @baseAmount)}\n#{renderRow2(state, @tax, @percentage)}"
+    "#{renderRow1(quantity, unitPrice, @baseAmount)}\n#{renderRow2(state, @tax, @percentage)}\n#{renderRow3()}"
 end
 
 puts main(ARGV[0], ARGV[1], ARGV[2])
