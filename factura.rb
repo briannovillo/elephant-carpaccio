@@ -18,7 +18,7 @@ def renderRow1(quantity, unitPrice, baseAmount)
 end
 
 def renderRow2(state)
-    return "#{state} #{getTaxForState(state)}"
+    return "#{state} #{getTaxForState(state)} = "
 end
 
 def main(quantity, unitPrice, state)
