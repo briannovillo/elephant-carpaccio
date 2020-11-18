@@ -6,10 +6,14 @@ def renderRow1(quantity, unitPrice, baseAmount)
     return "# #{quantity} * #{unitPrice} = #{baseAmount}"
 end
 
-def main(quantity, unitPrice)
-    @baseAmount = multiply(quantity, unitPrice)
-
-    renderRow1(quantity, unitPrice, @baseAmount)
+def renderRow2(state)
+    return "#{state}"
 end
 
-puts main(ARGV[0], ARGV[1])
+def main(quantity, unitPrice, state)
+    @baseAmount = multiply(quantity, unitPrice)
+
+    "#{renderRow1(quantity, unitPrice, @baseAmount)}\n#{renderRow2(state)}"
+end
+
+puts main(ARGV[0], ARGV[1], ARGV[2])
