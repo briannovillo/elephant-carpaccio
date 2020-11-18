@@ -38,7 +38,7 @@ def renderRow2(state, tax, percentage)
 end
 
 def renderRow3(discount)
-    return "DTO #{discount}"
+    return "DTO % #{discount}"
 end
 
 def main(quantity, unitPrice, state)
