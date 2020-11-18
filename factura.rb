@@ -1,10 +1,9 @@
-
-def renderRow1()
-    return "#"
+def renderRow1(quantity)
+    return "# #{quantity}"
 end
 
-def main()
-    renderRow1()
+def main(quantity)
+    renderRow1(quantity)
 end
 
-puts main()
+puts main(ARGV[0])
