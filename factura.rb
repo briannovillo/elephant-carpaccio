@@ -1,5 +1,5 @@
 def renderRow1(quantity, unitPrice)
-    return "# #{quantity} * #{unitPrice}"
+    return "# #{quantity} * #{unitPrice} = "
 end
 
 def main(quantity, unitPrice)
