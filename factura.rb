@@ -1,9 +1,9 @@
-def renderRow1(quantity)
-    return "# #{quantity}"
+def renderRow1(quantity, unitPrice)
+    return "# #{quantity} #{unitPrice}"
 end
 
-def main(quantity)
-    renderRow1(quantity)
+def main(quantity, unitPrice)
+    renderRow1(quantity, unitPrice)
 end
 
-puts main(ARGV[0])
+puts main(ARGV[0], ARGV[1])
