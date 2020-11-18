@@ -42,7 +42,7 @@ def renderRow3(discount, discountAmount)
 end
 
 def renderRow4()
-    return "Total"
+    return "Total = "
 end
 
 def main(quantity, unitPrice, state)
