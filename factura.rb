@@ -1,3 +1,15 @@
+def getDiscountForAmountGreaterThan(amount)
+    @discounts = {
+        1000 => 3.00,
+        5000 => 5.00,
+        7000 => 7.00,
+        10000 => 10.00,
+        50000 => 15.00
+    };
+    @bestDiscountAvailable = @discounts.keys().select{ |key| amount >= key }.last()
+    return @discounts[@bestDiscountAvailable] ? @discounts[@bestDiscountAvailable] : 0.00;
+end
+
 def getTaxForState(state)
     @taxes = {
         "UT" => 6.85,
@@ -25,16 +37,19 @@ def renderRow2(state, tax, percentage)
     return "#{state} #{tax} = #{percentage}"
 end
 
-def renderRow3()
-    return "DTO"
+def renderRow3(discount)
+    return "DTO #{discount}"
 end
 
 def main(quantity, unitPrice, state)
     @baseAmount = multiply(quantity, unitPrice)
-    @tax = getTaxForState(state)
-    @percentage = percentage(@baseAmount, @tax)
 
-    "#{renderRow1(quantity, unitPrice, @baseAmount)}\n#{renderRow2(state, @tax, @percentage)}\n#{renderRow3()}"
+    @tax = getTaxForState(state)
+    @taxAmount = percentage(@baseAmount, @tax)
+
+    @discount = getDiscountForAmountGreaterThan(@baseAmount)
+
+    "#{renderRow1(quantity, unitPrice, @baseAmount)}\n#{renderRow2(state, @tax, @taxAmount)}\n#{renderRow3(@discount)}"
 end
 
 puts main(ARGV[0], ARGV[1], ARGV[2])
